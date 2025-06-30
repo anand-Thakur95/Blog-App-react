@@ -48,11 +48,11 @@ function Signin() {
             } else {
                 const successData = await response.json();
                 showToast('success', successData.message);
-                dispatch(setUser(data.user));
+                dispatch(setUser(successData.user));
                 navigate(RouteIndex);
             }
         } catch (error) {
-            console.log(error);
+          
             showToast('error', error.message);
         }
     }

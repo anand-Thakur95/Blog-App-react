@@ -11,10 +11,12 @@ import { RouteSignIn } from '@/helpers/RouteName'
 import GoogleLogin from "../components/GoogleLogin.jsx"
 import { getEnv } from '@/helpers/getenv.js'
 import { showToast } from '@/helpers/showToast'
+import { useSelector } from 'react-redux'
 
 function SignUp() {
 
     const navigate = useNavigate()
+    const user = useSelector(state => state.user)
 
     const formSchema = z.object({
         name: z.string().min(4, { message: 'Name must be at least 4 characters long' }).max(20),

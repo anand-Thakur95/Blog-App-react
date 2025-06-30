@@ -16,10 +16,20 @@ import { ImBlog } from "react-icons/im";
 import { LiaComments } from "react-icons/lia";
 import { FaUserCircle } from "react-icons/fa";
 import { FaRegDotCircle } from "react-icons/fa";
-import { RouteCategoryDetails } from "@/helpers/RouteName";
+import { RouteBlog, RouteBlogByCategory, RouteCategoryDetails, RouteCommentDetails, RouteIndex, RouteUser } from "@/helpers/RouteName";
+import { getEnv } from "@/helpers/getenv";
+import { useFetch } from "@/hooks/useFetch";
+import { useSelector } from "react-redux";
 
 
 function AppSideBar() {
+const  user = useSelector(state => state.user);
+  const {data: categoryData } = useFetch(`${getEnv('VITE_API_BASE_URL')}/category/all-category`,{
+    method: 'get',
+    Credential: 'include',
+
+})
+
   return (
     <Sidebar>
     <SidebarHeader className= "bg-white">
@@ -31,38 +41,52 @@ function AppSideBar() {
             <SidebarMenuItem>
                 <SidebarMenuButton>
                 <IoHomeOutline />
-                  <Link to= "">Home</Link>
+                  <Link to= {RouteIndex}>Home</Link>
                 </SidebarMenuButton>
             </SidebarMenuItem>
+{user && user.isLoggedIn 
+?
+<>
+<SidebarMenuItem>
+<SidebarMenuButton>
+<ImBlog />
+  <Link to= {RouteBlog}>Blogs</Link>
+</SidebarMenuButton>
+</SidebarMenuItem>
 
-            <SidebarMenuItem>
+<SidebarMenuItem>
+<SidebarMenuButton>
+<LiaComments />
+  <Link to= {RouteCommentDetails}>Comments</Link>
+
+</SidebarMenuButton>
+</SidebarMenuItem>
+</>
+:
+<></>
+}
+
+{user && user.isLoggedIn && user.user?.role === "admin" ?
+<>
+  <SidebarMenuItem>
                 <SidebarMenuButton>
                 <BiCategoryAlt />
                   <Link to= {RouteCategoryDetails}>Categories</Link>
                 </SidebarMenuButton>
             </SidebarMenuItem>
 
-            <SidebarMenuItem>
-                <SidebarMenuButton>
-                <ImBlog />
-                  <Link to= "">Blogs</Link>
-                </SidebarMenuButton>
-            </SidebarMenuItem>
-
-            <SidebarMenuItem>
-                <SidebarMenuButton>
-                <LiaComments />
-                  <Link to= "">Comments</Link>
-                </SidebarMenuButton>
-            </SidebarMenuItem>
-
+        
             <SidebarMenuItem>
                 <SidebarMenuButton>
                 <FaUserCircle />
-                  <Link to= "">Users</Link>
+                  <Link to= {RouteUser}>Users</Link>
                 </SidebarMenuButton>
             </SidebarMenuItem>
-
+            </>
+            :
+            <></>
+}
+           
         </SidebarMenu>
       </SidebarGroup>
       
@@ -71,13 +95,12 @@ function AppSideBar() {
             Categories
         </SidebarGroupLabel>
         <SidebarMenu>
-            <SidebarMenuItem>
-                <SidebarMenuButton>
-                <FaRegDotCircle />
-                  <Link to= "">Category items</Link>
-                </SidebarMenuButton>
-            </SidebarMenuItem>
-  
+          {categoryData && categoryData.category.length > 0 && categoryData.category.map(category => <SidebarMenuItem key={category._id}><SidebarMenuButton>
+            <FaRegDotCircle />
+            <Link to={RouteBlogByCategory(category.slug)}>{category.name}</Link>
+            </SidebarMenuButton></SidebarMenuItem>)}
+            
+          
         </SidebarMenu>
       </SidebarGroup>
     </SidebarContent>

@@ -10,6 +10,7 @@ import BlogRoute from './routes/Blog.route.js'
 import CommentRoute from './routes/comment.route.js'
 import BlogLikeRoute from './routes/Bloglike.route.js'
 
+
 dotenv.config({ path: './.env' })
 
 const PORT = process.env.PORT
