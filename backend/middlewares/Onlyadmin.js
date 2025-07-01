@@ -3,8 +3,7 @@ import jwt from 'jsonwebtoken'
 export const Onlyadmin = async (req, res, next) => {
     try {
         const token = req.cookies.access_token
-        console.log(token);
-        
+       
         if (!token) {
             const error = new Error('Unauthorized - No token provided')
             error.status = 403
