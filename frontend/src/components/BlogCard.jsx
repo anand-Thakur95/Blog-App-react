@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux'
 import { Avatar } from './ui/avatar'
 import { AvatarImage } from '@radix-ui/react-avatar'
 import { FaRegCalendarAlt } from "react-icons/fa";
-import usericon from '@/assets/images/user.png'
+import { UserIcon } from 'lucide-react'
 import moment from 'moment'
 import { Link } from 'react-router-dom'
 import { RouteBlogDetails } from '@/helpers/RouteName'
@@ -19,7 +19,7 @@ const BlogCard = ({ props }) => {
                     <div className='flex items-center justify-between'>
                         <div className='flex justify-between items-center gap-2'>
                             <Avatar>
-                                <AvatarImage src={props.author.avatar || usericon} />
+                                <AvatarImage src={props.author.avatar || UserIcon} />
                             </Avatar>
                             <span>{props.author.name}</span>
                         </div>
