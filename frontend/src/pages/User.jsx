@@ -19,7 +19,7 @@ import { FiEdit } from "react-icons/fi";
 import { FaRegTrashAlt } from "react-icons/fa";
 import { deleteData } from '@/helpers/handleDelete'
 import { showToast } from '@/helpers/showToast'
-import usericon from '@/assets/images/user.png'
+
 import moment from 'moment'
 import { getEnv } from '@/helpers/getenv'
 const User = () => {
@@ -69,7 +69,7 @@ const User = () => {
                                         <TableCell>{user.name}</TableCell>
                                         <TableCell>{user.email}</TableCell>
                                         <TableCell>
-                                            <img src={user.avatar || usericon} className='w-10' />
+                                            <img src={user.avatar} className='w-10' />
                                         </TableCell>
                                         <TableCell>{moment(user.createdAt).format('DD-MM-YYYY')}</TableCell>
 
