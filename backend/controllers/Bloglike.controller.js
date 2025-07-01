@@ -20,6 +20,8 @@ export const doLike = async (req, res, next) => {
             likecount
         })
 
+
+        
     } catch (error) {
         next(handleError(500, error.message))
     }
