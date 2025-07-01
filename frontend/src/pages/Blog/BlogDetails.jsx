@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import moment from 'moment'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader } from '@/components/ui/card'
 import { Link } from 'react-router-dom'
@@ -19,7 +20,7 @@ import { getEnv } from '@/helpers/getenv'
 import { useFetch } from '@/hooks/useFetch'
 import { FaRegEdit } from "react-icons/fa";
 import { FaRegTrashAlt } from "react-icons/fa";
-import moment from 'moment'
+
 
 function BlogDetails() {
 const [refreshData, setRefreshData] = useState(false)
