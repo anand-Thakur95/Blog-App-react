@@ -28,7 +28,7 @@ const CommentList = ({ props }) => {
             <h4 className='text-2xl font-bold'>
                 {
                     props.newComment ?
-                        <span className='me-2'>{commentLength + 1 }</span>
+                        <span className='me-2'>{commentLength  }</span>
                         :
                         <span className='me-2'>{commentLength}</span>
                 }

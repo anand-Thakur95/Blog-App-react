@@ -1,48 +1,6 @@
 import { useState, useEffect, useRef, useMemo } from 'react';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
-import {
-	ClassicEditor,
-	Autoformat,
-	AutoImage,
-	Autosave,
-	BalloonToolbar,
-	Base64UploadAdapter,
-	BlockQuote,
-	BlockToolbar,
-	Bold,
-	Emoji,
-	Essentials,
-	FullPage,
-	GeneralHtmlSupport,
-	Heading,
-	HtmlComment,
-	HtmlEmbed,
-	ImageBlock,
-	ImageInsert,
-	ImageInsertViaUrl,
-	ImageToolbar,
-	ImageUpload,
-	Indent,
-	IndentBlock,
-	Italic,
-	Link,
-	Mention,
-	PageBreak,
-	Paragraph,
-	ShowBlocks,
-	SourceEditing,
-	Table,
-	TableCaption,
-	TableCellProperties,
-	TableColumnResize,
-	TableProperties,
-	TableToolbar,
-	TextPartLanguage,
-	TextTransformation,
-	Title,
-	Underline,
-	WordCount
-} from 'ckeditor5';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 import 'ckeditor5/ckeditor5.css';
 
@@ -53,7 +11,7 @@ import 'ckeditor5/ckeditor5.css';
  */
 const LICENSE_KEY = 'GPL'; // or <YOUR_LICENSE_KEY>.
 
-export default function Editor({props}) {
+export default function Editor({ props }) {
 	const editorContainerRef = useRef(null);
 	const editorRef = useRef(null);
 	const editorWordCountRef = useRef(null);
@@ -199,7 +157,7 @@ export default function Editor({props}) {
 				image: {
 					toolbar: ['imageTextAlternative']
 				},
-				 initialData: props?.initialData || '',
+				initialData: props?.initialData || '',
 				licenseKey: LICENSE_KEY,
 				link: {
 					addTargetToExternalLinks: true,
