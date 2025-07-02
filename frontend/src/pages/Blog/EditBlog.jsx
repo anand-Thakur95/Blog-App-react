@@ -210,8 +210,7 @@ const EditBlog = () => {
                                     name="blogContent"
                                     render={({ field }) => (
                                         <FormItem>
-                                            {console.log(field.value)
-                                            }
+                                         
                                             <FormLabel>Blog Content</FormLabel>
                                             <FormControl>
                                                 <Editor props ={{ initialData : field.value, onChange :handleEditorData }} />

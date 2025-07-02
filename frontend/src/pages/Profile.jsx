@@ -28,7 +28,7 @@ const [file, setFile] = useState()
 
     const { data: userData, loading, error } = useFetch(`${getEnv('VITE_API_BASE_URL')}/user/get-user/${user.user._id}`, { method: 'get', credentials: 'include' })
 
-    console.log(userData);
+   
 
 
 
@@ -89,7 +89,7 @@ const [file, setFile] = useState()
         const preview = URL.createObjectURL(file)
         setFilePreview(preview)
         setFile(file)
-        console.log(files);
+      
         
 
     }
@@ -109,7 +109,7 @@ const [file, setFile] = useState()
 
                                 <Avatar className="w-24 h-24 relative group ">
                                     <AvatarImage src={filePreview ? filePreview : userData?.user?.avatar} />
-                                    console.log(filePreview);
+                              
                                     
                                     <div className='absolute hidden z-50 w-full h-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 justify-center items-center bg-black bg-opacity-20 border-2 border-violet-500 rounded-full group-hover:flex cursor-pointer'>
                                         <MdOutlineCameraAlt color='#7c3aed' />

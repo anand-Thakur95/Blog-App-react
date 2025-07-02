@@ -22,7 +22,7 @@ const EditCategory = () => {
         credentials: 'include'
     }, [category_id])
     
-    console.log(categoryData);
+    
     
     const formSchema = z.object({
         name: z.string().min(4, { message: 'Name must be at least 4 characters long' }).max(20),
@@ -65,7 +65,7 @@ const EditCategory = () => {
              form.reset()
             }
         } catch (error) {
-            console.log(error);
+          
             showToast('error', error.message);
         }
     }

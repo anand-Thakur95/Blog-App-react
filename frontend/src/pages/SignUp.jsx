@@ -53,7 +53,7 @@ function SignUp() {
                 navigate(RouteSignIn)
             }
         } catch (error) {
-            console.log(error);
+        
             showToast('error', error.message);
         }
     }

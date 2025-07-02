@@ -55,7 +55,7 @@ function AddCategory() {
              form.reset()
             }
         } catch (error) {
-            console.log(error);
+           
             showToast('error', error.message);
         }
     }

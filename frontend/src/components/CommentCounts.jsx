@@ -8,7 +8,7 @@ const CommentCount = ({ props, refresh }) => {
         credentials: 'include',
     }, [props.blogid, refresh])
 
-    console.log(data);
+ 
     
     return (
         <button type='button' className='flex justify-between items-center gap-1'>

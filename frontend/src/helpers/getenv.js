@@ -3,4 +3,3 @@ export const getEnv = (envname) => {
     return env[envname]
     
 }
-console.log(import.meta.env);

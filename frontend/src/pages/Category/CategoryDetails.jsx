@@ -31,7 +31,7 @@ function CategoryDetails() {
 
    if(loading) return <Loading/>
 
-   console.log(categoryData);
+  
    
     
   return (

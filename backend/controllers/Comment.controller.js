@@ -17,8 +17,7 @@ export const addcomment = async (req, res, next) =>{
          });
     } catch (error) {
         next(handleError(500, error.message))
-        console.log(error);
-        
+       
     }
 }
 
